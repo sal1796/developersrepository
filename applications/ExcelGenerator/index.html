@@ -1,1 +1,57 @@
-
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
+        <script src="https://unpkg.com/xlsx@0.12.9/dist/xlsx.full.min.js"></script>
+        <!--Load the stylesheet -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
+        <link rel="stylesheet" href="css/excelGenerator.css">        
+    </head>
+    <body ng-app="app" ng-controller="testController">
+        <header>
+            <h1>Excel Generator</h1>
+        </header>
+        <button ng-click="addRow()">Add Rows</button>&emsp;
+            <input type="text" ng-model="fileName" placeholder="Enter File Name">&nbsp;
+            <button ng-click="exportToExcel('xlsx')" ng-mouseover="hideElements()">Export to XLSX</button>&nbsp;
+            <button ng-click="exportToExcel('xls')" ng-mouseover="hideElements()">Export to XLS</button>&nbsp;
+            <button ng-click="exportToExcel('csv')" ng-mouseover="hideElements()">Export to CSV</button>&nbsp;
+        <div id="tableContainer" class="table-responsive">            
+            <table id="myTable" class="table-hover">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>First Name</th>
+                        <th>Middle Name</th>
+                        <th>Last Name</th>
+                        <th>Age</th>
+                        <th>Gender</th>
+                        <th>City</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="tableRow in tableRows track by $index">
+                        <td contenteditable="true" ng-click="removeRow($index)"><span class="removeRow" ng-if="actionColumn">X&nbsp;</span>{{tableRow.id}}</td>
+                        <td contenteditable="true">{{tableRow.firstName}}</td>
+                        <td contenteditable="true">{{tableRow.middleName}}</td>
+                        <td contenteditable="true">{{tableRow.lastName}}</td>
+                        <td contenteditable="true">{{tableRow.age}}</td>
+                        <td contenteditable="true">{{tableRow.gender}}</td>
+                        <td contenteditable="true">{{tableRow.city}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <script src="scripts/excelGenerator.js"></script>
+    </body>
+</html>
