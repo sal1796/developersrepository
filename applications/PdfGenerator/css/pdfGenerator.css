@@ -1,6 +1,10 @@
 body{
     padding:4%;
-    background: linear-gradient(to bottom right, #d5d5f4, white);
+    background: linear-gradient(to bottom right, #8989f5, white);
+}
+header{
+    background: linear-gradient(to bottom, black, silver);
+    color:white
 }
 table{
     width:40%;
