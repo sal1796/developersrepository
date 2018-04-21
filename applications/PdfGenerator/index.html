@@ -1,11 +1,70 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
 <html>
-  <body>
-    Hello World!<br>
-    <ol>
-      <li>This</li>
-      <li>is</li>
-      <li>another</li>
-      <li>Test</li>
-    </ol>
-  </body>
+    <head>
+        <title>Div to PDF Generator</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!-- Load the required libraries -->
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+        <script src="https://kendo.cdn.telerik.com/2017.2.621/js/jquery.min.js"></script> 
+        <script src="https://kendo.cdn.telerik.com/2017.2.621/js/jszip.min.js"></script>
+        <script src="https://kendo.cdn.telerik.com/2017.2.621/js/kendo.all.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
+        <!--Load the stylesheet -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
+        <link rel="stylesheet" href="css/pdfGenerator.css">
+    </head>
+    <body ng-app="app" ng-controller="testController">
+        <header>
+            <h1>PDF Generator</h1>
+        </header>
+        <br>
+        <div>
+            <div id="myCanvas1" contenteditable="true">
+                <b>Exporting content without CSS styles</b><br>
+                You can edit me and then export! 
+            </div>
+            <div>
+                <input type="text" placeholder="Enter File Name" ng-model="fileNameInput1">&emsp;<button ng-click="export1()">Click to Export</button>
+            </div>
+        </div>
+        <br><br>
+        <div>
+            <div id="myCanvas2" contenteditable="true">
+                <b>Exporting content with CSS style</b><br>
+                <p class="p1">This floats on the left</p><p class="p2"></p><p class="p3">This floats on the right</p>
+            </div>
+            <div style="clear:both">
+                <input type="text" placeholder="Enter File Name" ng-model="fileNameInput2">&emsp;<button ng-click="export2()">Click to Export</button>
+            </div>
+        </div>
+        <br><br>
+        <div>
+            <div id="myCanvas3" class="table-responsive">
+                <b>Edit Contents of Table</b>
+                <table class="table-striped table-dark">
+                    <tr>
+                        <th>ID</th><th>Name</th><th>City</th>
+                    </tr>
+                    <tr ng-repeat="tableRow in tableRows" ng-mouseover="showElements()">                            
+                        <td contenteditable="true"><span class="removeRow" ng-if="actionColumn" ng-click="removeRow()">X</span> {{tableRow.id}}</td>
+                        <td contenteditable="true">{{tableRow.Name}}</td>
+                        <td contenteditable="true">{{tableRow.City}}</td>
+                    </tr>
+                </table>
+                <br>
+            </div>
+            <div>
+                <button ng-click="addRow()">Click to Add Rows</button>&emsp;
+                <input type="text" placeholder="Enter File Name" ng-model="fileNameInput3">&nbsp;<button ng-click="export3()" ng-mouseover="hideElements()">Click to Export</button>
+            </div>
+        </div>        
+        <script src="scripts/pdfGenerator.js"></script>
+    </body>
 </html>
