@@ -1,0 +1,35 @@
+body{
+    padding:4%;
+    background-color:#d5d5f4;
+}
+table{
+    width:40%;
+    table-layout: fixed;
+    text-align: center;
+}
+p{
+    float:left;
+}
+#myCanvas2 .p1{
+    width:40%;
+    font-style: italic;
+    font-size:12pt;
+    background-color:yellow;
+    color:red;
+}
+#myCanvas2 .p2{
+    width:20%;
+}
+#myCanvas2 .p3{
+    width:40%;
+    font-style: oblique;
+    font-size: 12pt;
+    background-color:green;
+    color:white;
+}
+.removeRow{
+    cursor:pointer;
+}
+button{
+    cursor:pointer;
+}
