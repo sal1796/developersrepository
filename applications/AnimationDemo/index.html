@@ -1,1 +1,167 @@
-
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Animation Demo</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="css/animationDemo.css">
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+        <script src="scripts/animationDemo.js"></script>
+    </head>
+        <header>
+            <center>
+                <table id="headerTable">
+                    <tr>
+                        <td style="vertical-align: top;"><img src="animationDemo.png" height="50" width="50"></td>
+                        <td style="font-weight:bolder; font-size:14pt">Information System</td>
+                    </tr>
+                </table>
+            </center>
+        </header> <br>
+        <div id="bodyContainer">
+            <span style="font-size:16pt; font-weight:bold">Admin Panel</span>&emsp;
+            <span style="font-size:12pt;"><u>Logged in as:</u> John Doe</span>
+            <br><br>
+            <div id="sideNavigation">
+                <a href="#" id="userControlLink">User Control</a><br><br>
+                <a href="#" id="viewEmployeeLogsLink">View Employee Logs</a><br><br>
+                <a href="#" id="changeDepartmentCodeLink">Department Password<br>Control</a><br><br>
+                <a href="#" id="logoutLink">Logout</a>
+            </div>
+            <div class="emptyDiv">&nbsp;</div>
+            <div id="content">
+                <!-- this div gets its contents filled depending on the link clicked -->
+            </div>
+        </div>
+        <div id="containersDiv">
+            <div id="userControlDiv">
+                <span style="font-size:14pt">User Control</span><br>
+                <div id="addUserDiv">
+                    <span style="font-size:14pt">Add User</span><br>
+                    <form id="addUserForm">
+                        <table>
+                            <tr>
+                                <td>Enter Username</td>
+                                <td><input type="text" name="newUserName"></td>
+                            </tr>
+                            <tr>
+                                <td>Enter Department</td>
+                                <td>
+                                    <select>
+                                        <option>Human Resource</option>
+                                        <option>Operations</option>
+                                        <option>PRO</option>
+                                        <option>Accounts</option>
+                                    </select>
+                                </td>
+                            </tr>
+                        </table>
+                        <input type="button" value="Add New Employee" class="addNewEmployeeButton">
+                    </form>
+                </div>
+                <div id="existingUserDiv">
+                    <span style="font-size:14pt">Existing Users</span><br>
+                    <form id="changeUserRoleForm">
+                        <table>
+                            <tr>
+                                <td>Select User</td>
+                                <td>
+                                    <select class="employeeList">
+                                        <option>John</option>
+                                        <option>Jane</option>
+                                        <option>Jack</option>
+                                        <option>Jill</option>
+                                    </select>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="2" style="text-align:right"><a href="#" class="denyAccessLink">Deny Access Privileges</a></td>
+                            </tr>
+                            <tr>
+                                <td><br>Current Department</td>
+                                <td><br><input type="text" value="" disabled></td>
+                            </tr>
+                            <tr>
+                                <td>New Department</td>
+                                <td><input type="text" name="newDepartment" disabled></td>
+                            </tr>
+                            <tr>
+                                <td colspan="2" style="text-align:right"><input type="button" class="changeDepartmentButton" value="Change Department"></td>
+                            </tr>
+                        </table>
+                    </form>
+                </div>
+            </div>            
+            <div id="employeeLogsDiv">
+                <span style="font-size:14pt">Employee Logs</span>&emsp;
+                <br>
+                <table>
+                    <tr>
+                        <th>Name</th>
+                        <th>Last Login</th>
+                        <th>Action</th>
+                        <th>Action Performed At</th>
+                    </tr>
+                    <tr>
+                        <td>Jane</td>
+                        <td>21st April 2018: 10:32:51</td>
+                        <td>Updated Purchase Orders</td>
+                        <td>21st April 2018: 10:45:12</td>
+                    </tr>
+                    <tr>
+                        <td>Jane</td>
+                        <td>21st April 2018: 10:32:51</td>
+                        <td>Exported Purchase Orders</td>
+                        <td>21st April 2018: 10:46:01</td>
+                    </tr>
+                    <tr>
+                        <td>Jack</td>
+                        <td>21st April 2018: 09:21:36</td>
+                        <td>Removed Expired Products</td>
+                        <td>21st April 2018: 09:27:22</td>
+                    </tr>
+                    <tr>
+                        <td>John</td>
+                        <td>21st April 2018: 11:32:51</td>
+                        <td>Approved Quotation</td>
+                        <td>21st April 2018: 12:45:12</td>
+                    </tr>
+                </table>
+            </div>
+            <div id="changeDepartmentCodeDiv">
+                <span style="font-size:14pt">Change Department Password</span><br><br>
+                <form id="changeDepartmentCodeForm">                    
+                    <table>
+                        <tr>
+                            <td>Select Department</td>
+                            <td>
+                                <select>
+                                    <option>Human Resource</option>                            
+                                    <option>Operations</option>                            
+                                    <option>PRO</option>
+                                    <option>Accounts</option>
+                                </select>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Old Password</td>
+                            <td><input type="password" name="oldPassword"></td>
+                        </tr>
+                        <tr>
+                            <td>New Password</td>
+                            <td><input type="password" name="newPassword"></td>
+                        </tr>
+                        <tr>
+                            <td>Confirm Password</td>
+                            <td><input type="password"></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td><br><input type="button" class="changePasswordButton" value="Change Password"></td>
+                        </tr>
+                    </table>
+                </form>
+            </div>
+        </div>   
+    </body>
+</html>
